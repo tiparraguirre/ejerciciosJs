@@ -1,17 +1,16 @@
-
 function esMatriz(matriz) {
 	if (!Array.isArray(matriz)) {
-		return false
+		return false;
 	}
 
 	for (let fila of matriz) {
 		if (!Array.isArray(fila)) {
-			return false
+			return false;
 		}
 
 		for (let numero of fila) {
-			if (typeof numero !== 'number' || isNaN(numero)) {
-				return false
+			if (typeof numero !== "number" || isNaN(numero)) {
+				return false;
 			}
 		}
 	}
@@ -20,12 +19,12 @@ function esMatriz(matriz) {
 }
 
 function contarMatrices(matriz) {
-	let contador = []
-	const fila = matriz.length
+	let contador = [];
+	const fila = matriz.length;
 
 	for (let f = 0; f < fila; f++) {
 		for (let c = 0; c < matriz[f].length; c++) {
-			contador.push([matriz[f][c]])
+			contador.push([matriz[f][c]]);
 		}
 	}
 
@@ -33,25 +32,24 @@ function contarMatrices(matriz) {
 }
 
 function cantidadElementos(cantidad) {
-	return `hay ${cantidad} numeros `
+	return `hay ${cantidad} numeros `;
 }
 
 function mensajeError() {
-	return "No es una Matriz Validad o no es Matriz"
+	return "No es una Matriz Validad o no es Matriz";
 }
 
 function ejercicio2(matriz) {
 	if (esMatriz(matriz)) {
-		let contador = contarMatrices(matriz)
-		return cantidadElementos(contador)
+		let contador = contarMatrices(matriz);
+		return cantidadElementos(contador);
 	} else {
-		return mensajeError()
+		return mensajeError();
 	}
 }
 
-
 let matriz1 = [
 	[1, 2, 3],
-	[4, 5, 6]
-]
+	[4, 5, 6],
+];
 console.log(ejercicio2(matriz1));
