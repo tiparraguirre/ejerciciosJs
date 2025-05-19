@@ -1,39 +1,51 @@
-// let matriz = [
-// 	[-1, -2, -8, -3],
-// 	[-1, -2, -3, -4, 8]
-// ]
+function esMatrizValida(matriz) {
+	if (!Array.isArray(matriz)) {
+		return false;
+	}
 
-// let mayor
-// for (let i = 0; i < matriz.length; i++) {
+	for (let fila of matriz) {
+		if (!Array.isArray(fila)) return false;
+		for (let num of fila) {
+			if (typeof num !== 'number' || !isFinite(num)) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
 
-// 	for (let j = 0; j < matriz[i].length; j++) {
-// 		if (matriz[i][j] > num) {
-// 			num = matriz[i][j]
-// 		}
-
-
-// 	}
-// }
-
-// console.log(num);
-
-function numMasgrande(matriz) {
+function numMasGrande(matriz) {
 	const fila = matriz.length
 	let mayor = -Infinity
+
 	for (let f = 0; f < fila; f++) {
 		for (let c = 0; c < matriz[f].length; c++) {
 			if (matriz[f][c] > mayor) {
 				mayor = matriz[f][c]
 			}
-
 		}
 	}
-	if (mayor != -Infinity) { return mayor }
-	if (mayor = Infinity) { return "no hay nums o no es matriz valida" }
+
+	return mayor
 }
 
-let matriz = [
-	[-1],
-	[-2]
+function errorMensaje() {
+	return "No es una matriz Valida"
+
+}
+
+function ejercicio4(matriz) {
+	if (esMatrizValida(matriz)) {
+		let respuesta = numMasGrande(matriz)
+		return respuesta
+	} else {
+
+		return errorMensaje()
+	}
+
+}
+const matriz = [
+	[234, 574, 234],
+	[123, 123, 123, 324, , 345, 453]
 ]
-console.log(numMasgrande(matriz));
+console.log(ejercicio4(matriz));

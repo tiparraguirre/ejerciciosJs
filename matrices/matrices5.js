@@ -1,31 +1,22 @@
-// let matriz = [
-// 	[1, 3, 5, 9],
-// 	[3, 5, 6, 7]
-// ]
-// let num = 8
-// let contador = 0
-// for (let i = 0; i < matriz.length; i++) {
+function esMatrizValida(matriz) {
+	if (!Array.isArray(matriz)) return false;
 
-// 	for (let j = 0; j < matriz[i].length; j++) {
-// 		if (matriz[i][j] === num) {
-// 			contador = contador + 1
-// 		}
+	for (let fila of matriz) {
+		if (!Array.isArray(fila)) return false;
+		for (let num of fila) {
+			if (typeof num !== 'number' || !isFinite(num)) {
+				return false;
+			}
+		}
+	}
 
-// 	}
+	return true;
+}
 
-
-// }
-// if (contador > 0) {
-// 	console.log(`el numero esta ${contador} veces`);
-
-
-// } else {
-// 	console.log("el numero no esta");
-//}
-
-function determinarNumMatriz(matriz, num) {
+function numCuantasVeces(matriz, num) {
 	let contador = 0
 	const fila = matriz.length
+
 	for (let f = 0; f < fila; f++) {
 		for (let c = 0; c < matriz[f].length; c++) {
 			if (matriz[f][c] === num) {
@@ -34,17 +25,33 @@ function determinarNumMatriz(matriz, num) {
 		}
 	}
 
-	if (contador > 0) {
-		return `el numero esta ${contador} veces`
-	} else {
-		return "el numero no esta"
+	return contador
+}
 
+function respuesta(n) {
+	if (n > 0) {
+		return `el numero esta ${n} veces`
+	} else {
+		return `el numero esta ${n} veces`
+	}
+}
+function mensajeError() {
+	return "La Matriz no es Valida"
+}
+
+
+function ejericio5(matriz, num) {
+	if (esMatrizValida(matriz)) {
+		let n = numCuantasVeces(matriz, num)
+		return respuesta(n)
+	} else {
+		return mensajeError()
 	}
 
 }
+
 let matriz = [
-	[1, 2, 3],
-	[1, 2, 4]
+	[1, 2, 3, 4, 5],
+	[5, 6, 7, 8, 8]
 ]
-let num = 4
-console.log(determinarNumMatriz(matriz, 2));
+console.log(ejericio5(matriz, 8));

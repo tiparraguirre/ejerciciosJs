@@ -1,52 +1,46 @@
-// let matriz1 = [
-// 	[1, 2, 3],
-// 	[4, 5, 6]]
-// let matrizc = []
-// let k = 2
+function esMatrizValida(matriz) {
+	if (!Array.isArray(matriz)) return false;
 
-// for (let i = 0; i < matriz1.length; i++) {
-// 	let fila = []
+	for (let fila of matriz) {
+		if (!Array.isArray(fila)) return false;
 
-
-// 	for (let j = 0; j < matriz1[i].length; j++) {
-
-
-// 		fila.push(matriz1[i][j] * k)
-
-// 	}
-// 	matrizc.push(fila)
-
-// }
-// console.log(matrizc);
-
-
-function verificarMatrizCuadrada(matriz) {
-	const fila = matriz.length
-	for (let f = 0; f < fila; f++) {
-		if (matriz[f].length !== fila) {
-			return false
+		for (let num of fila) {
+			if (typeof num !== 'number' || !isFinite(num)) {
+				return false;
+			}
 		}
 	}
-	return true
+	return true;
 }
 
 function multByK(matriz, k) {
-	if (verificarMatrizCuadrada(matriz, k) == false) {
-		return "no es cuadrada y por lo tanto no multiplicable"
-	}
-
-
 	const matrizC = []
 	const fila = matriz.length
-	const columna = matriz.length
+
 	for (let f = 0; f < fila; f++) {
 		let filaC = []
+		const columna = matriz[f].length
 		for (let c = 0; c < columna; c++) {
 			filaC.push(matriz[f][c] * k)
 		}
 		matrizC.push(filaC)
 	}
+
 	return matrizC
+}
+
+function mensajeError() {
+	return "No es matriz Cuadrada por lo tanto no se puede multiplicar por un escalar"
+
+}
+
+function ejercicio3(matriz, k) {
+	if (esMatrizValida(matriz)) {
+		let resultado = multByK(matriz, k)
+		return resultado
+	} else {
+		return mensajeError()
+	}
 }
 
 let matriz = [
@@ -55,4 +49,4 @@ let matriz = [
 	[7, 8, 9]
 ]
 let k = 2
-console.log(multByK(matriz, k));
+console.log(ejercicio3(matriz, k));
