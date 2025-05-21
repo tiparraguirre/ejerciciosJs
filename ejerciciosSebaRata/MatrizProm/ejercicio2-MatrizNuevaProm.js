@@ -1,21 +1,3 @@
-function ejerciocio2(matriz) {
-    if (esMatrizValida(matriz)) {
-        const resultado = []
-        for (let f = 0; f < matriz.length; f++) {
-            for (let c = 0; c < matriz[f].length; c++) {
-                const adyacentes = sacarElementosadyacentes2(matriz, f, c)
-                const suma = sumarAdyacentes(adyacentes)
-                const cantidad = contarAdyacentes(adyacentes)
-                const promedio = calcularPromedioady(suma, cantidad)
-                agregarResultadoMatrizProm(promedio, f, resultado)
-            }
-        }
-        return resultado
-    } else {
-        return mostrarError()
-    }
-}
-
 //correcto
 function esMatrizValida(matriz) {
     if (!Array.isArray(matriz)) {
@@ -128,6 +110,23 @@ function agregarResultadoMatrizProm(prom, f, resultado) {
     return resultado
 }
 
+function ejerciocio2(matriz) {
+    if (esMatrizValida(matriz)) {
+        const resultado = []
+        for (let f = 0; f < matriz.length; f++) {
+            for (let c = 0; c < matriz[f].length; c++) {
+                const adyacentes = sacarElementosadyacentes2(matriz, f, c)
+                const suma = sumarAdyacentes(adyacentes)
+                const cantidad = contarAdyacentes(adyacentes)
+                const promedio = calcularPromedioady(suma, cantidad)
+                agregarResultadoMatrizProm(promedio, f, resultado)
+            }
+        }
+        return resultado
+    } else {
+        return mostrarError()
+    }
+}
 const matriz = [
     [2, 4, 6, 8, 10],
     [4, 8, 12, 16, 20],
