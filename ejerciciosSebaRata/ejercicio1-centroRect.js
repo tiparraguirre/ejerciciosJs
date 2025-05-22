@@ -9,7 +9,7 @@ function sonCoordenadasValidas(cord1, cord2) {
 		}
 	}
 
-	if (size != 4) {
+	if (size !== 4) {
 		return false;
 	} else {
 		return true;
@@ -31,7 +31,7 @@ function redondearCentro(centro) {
 	return centroRedondeado
 }
 function respuesta(centro, cord1, cord2) {
-	return `el centro del rectangulo de las cordenadas [${cord1}],[${cord2}] es : [${centro[0]}:${centro[1]}]"`
+	return `el centro del rectangulo de las cordenadas [${cord1}],[${cord2}] es : [${centro[0]}:${centro[1]}]`;
 }
 
 function tirarError() {
