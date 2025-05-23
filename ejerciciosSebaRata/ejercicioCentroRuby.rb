@@ -12,7 +12,7 @@ def son_coordenadas_validas(c1, c2)
 end
 
 def calcular_centro(c1, c2)
-  centro = [((c1[0] + c2[0]) / 2).ceil, ((c1[1] + c2[1]) / 2).ceil]
+  centro = [((c1[0] + c2[0]) / 2.0).ceil, ((c1[1] + c2[1]) / 2.0).ceil]
   centro
 end
 

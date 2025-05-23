@@ -39,7 +39,7 @@ def esMatrizValida(matriz)
 end
 
 def sacarElementosAdyacentes(matriz, f, c)
-  POSICIONES = [
+  posiciones = [
     [f, c - 1], [f, c + 1],
     [f - 1, c], [f + 1, c],
     [f - 1, c - 1], [f - 1, c + 1],
@@ -48,7 +48,7 @@ def sacarElementosAdyacentes(matriz, f, c)
 
   elementosAdyacentes = []
 
-  POSICIONES.each do |pos|
+  posiciones.each do |pos|
     if pos[0] >= 0 && pos[0] < matriz.length &&
        pos[1] >= 0 && pos[1] < matriz[pos[0]].length
       elementosAdyacentes.push(matriz[pos[0]][pos[1]])
