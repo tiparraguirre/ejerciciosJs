@@ -18,7 +18,7 @@ class MatrizLib
         diagonal
     end
 
-    #Valida si un elemento pertenece a la matriz en base a sus coordenadas
+    # Valida si un elemento pertenece a la matriz en base a sus coordenadas
     # @paramas [Integer] numeros enteros
     # @return [Boolean] devuelve true si esta, false si no esta
     def validar_coordenadas?(f, c)
