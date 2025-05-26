@@ -16,6 +16,7 @@ def calcular_centro(c1, c2)
   centro
 end
 
+
 COORDENADA_1 = [42, 4]
 COORDENADA_2 = [2, 3]
 

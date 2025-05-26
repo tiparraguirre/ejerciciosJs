@@ -45,7 +45,7 @@ class MatrizLib
     
 end
 
-  def promedio
+  def promediar
     resultado = []
     @matriz.each_with_index do |fila, f|
       fila.each_with_index do |columna, c|
@@ -58,11 +58,11 @@ end
   end
 end
 
-matriz_generica = matriz = [
+matriz_generica = [
   [1, 2, 3],
   [4, 5, 6], 
   [7, 8, 9]
 ]
 
-matriz = MatrizLib.new(matriz_generica)
-puts matriz.puntoMedio(2,9)
+ puts MatrizLib.new(matriz_generica)
+
