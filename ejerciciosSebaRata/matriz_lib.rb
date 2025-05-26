@@ -25,7 +25,7 @@ class MatrizLib
         f.between?(0, @matriz.size - 1) && c.between?(0, @matriz[f].size - 1)
     end
 
-    #Saca los elementos adyacentes en base a un elemento
+    # Saca los elementos adyacentes en base a un elemento
     # @params [Integer] numeros enteros
     # @return [Array <Numeric>] Array con los elementos adyacentes del elemento dado 
     def sacar_elementos_adyacentes(f, c)
