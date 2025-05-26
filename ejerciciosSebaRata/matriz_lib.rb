@@ -101,6 +101,7 @@ matriz = [
     [1,2,3,4]
 ]
 
-puts MatrizLib.new(matriz).sacar_centro
-puts MatrizLib.new(matriz).matriz_cuadrada?
-puts MatrizLib.new(matriz).matriz_valida?
+matrizLib = MatrizLib.new(matriz)
+puts matrizLib.sacar_centro
+puts matrizLib.matriz_cuadrada?
+puts matrizLib.matriz_valida?
