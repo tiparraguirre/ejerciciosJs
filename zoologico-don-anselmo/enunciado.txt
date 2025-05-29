@@ -1,0 +1,36 @@
+🐾 Enunciado: El zoológico de Don Anselmo
+Don Anselmo es el cuidador de un zoológico que alberga diversas especies de animales. Cada animal tiene un nombre y es atendido todos los días con tareas específicas.
+
+Cada mañana, Don Anselmo debe:
+
+Alimentar a cada animal con el alimento adecuado para su especie.
+
+Estimular a los animales observando si realizan alguna de sus acciones típicas:
+
+Por ejemplo, algunos animales rugirán, otros estirarán el cuello, otros quizás nadarán, dependiendo de su especie.
+
+El zoológico actualmente tiene:
+
+Un león, que come carne y puede rugir.
+
+Una jirafa, que come hojas y puede estirar el cuello.
+
+Un pingüino, que come pescado y puede nadar.
+
+Don Anselmo lleva un registro con todos sus animales. A través de ese registro, quiere poder recorrerlos y ejecutar las tareas diarias sin preocuparse por qué especie es cada uno.
+
+⚠ Tené en cuenta que no todos los animales pueden realizar todas las acciones.
+Por ejemplo, no tendría sentido esperar que una jirafa ruja.
+
+También quiere asegurarse de que, si en el futuro se agregan nuevas especies, su rutina diaria no tenga que cambiar.
+
+🎯 Objetivo:
+Diseñá una solución que permita a Don Anselmo cumplir su rutina diaria de forma simple y segura. La solución debería permitir:
+
+Registrar distintos tipos de animales, cada uno con su comportamiento y alimento.
+
+Que Don Anselmo pueda recorrer su registro y ejecutar la rutina diaria.
+
+Que no haya necesidad de preguntar por la especie para alimentar o verificar sus acciones.
+
+Que el código se mantenga claro y fácil de extender en el futuro.
