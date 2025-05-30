@@ -17,16 +17,17 @@ end
 
 # Clase Leon que hereda metodos y inicializacion de Animal
 class Leon < Animal
-   
-    # reescribimos alimentos_preferidos con un array con le que le gusta
+    
+     # reescribimos alimentos_preferidos con un array con le que le gusta
     def alimentos_preferidos
         ["carne", "pollo", "pescado"]
     end
 end
+
 # Clase Pinguino que hereda metodos y inicializacion de Animal
 class Pinguino < Animal
     
-    # reescribimos alimentos_preferidos con un array con le que le gusta
+     # reescribimos alimentos_preferidos con un array con le que le gusta
     def alimentos_preferidos
         ["pescado"]
     end
@@ -36,25 +37,23 @@ end
 # Clase Jirafa que hereda metodos y inicializacion de Animal
 class Jirafa < Animal
    
-    # reescribimos alimentos_preferidos con un array con le que le gusta
+     # reescribimos alimentos_preferidos con un array con le que le gusta
     def alimentos_preferidos
         ["hojas", "pasto"]
     end
 
 end
 
-# Clase registro que almacena a los animales, alimentos en deposito y el estado de los animales que comieron y no
+# Clase registro que almacena a los animales, alimentos en deposito y dias que contienen que animales comieron y que no
 class Registro 
-
+    attr_reader :alimentos, :animales
+    
     # Incializamos un registro 
-    # contiene un Array en el cual se le almacenan los animales y alimentos, tambien un hash con los animales alimentados y los que no
+     # contiene un Array en el cual se le almacenan los animales , alimentos  y dias de alimentacion 
     def initialize
         @animales = []
         @alimentos = []
-        @estado_animales = {
-            alimentados: [],
-            no_alimentados: []
-        }
+        @dias_alimentacion = []
     end
 
     # Agregamos al animal al registro
@@ -64,22 +63,53 @@ class Registro
     end
 
     # Agregamos alimentos al stock
-    # @params[String] Alimento que quiero stockear
+    # @params[Array] Alimento que quiero stockear
     def agregar_alimento(alimento)
         @alimentos << alimento
     end
 
-    # metodo para alimentar a todos los animales en base al stock de alimentos y elimina los alimentos consumidos
+   
+   # agregamos el dia de alimentacion al registro de dias
+   # @paramas [Dia] dia que quiero almacenar
+    def agregar_dia(dia)
+        @dias_alimentacion << dia.estado_dia_completo
+    end
+
+end
+
+
+# Clase DiaAlimentar encargada de alimentar a los animales, reducir stock de alimentos y guardar cuales comieron y cuales no
+class DiaAlimentar
+    attr_reader :estado_animales
+
+    # inicializamos el dia
+    # @params [Registro, Integer] registro al cual accederemos a sus atributos y numero del dia
+    # contiene un hash el cual almacena los animales que comieron y los que no
+    def initialize(registro, dia)
+        @registro = registro
+        @dia = dia
+        @estado_animales = {
+            alimentados: [],
+            no_alimentados: []
+        }
+    end
+    
+    # metodo para devolver el dia y el estado de los animales que comieron o no
+    def estado_dia_completo
+        "dia#{@dia} = #{@estado_animales}"
+    end
+
+    # metodo para alimentar a todos los animales en base al stock de alimentos  y animales que hay en registro |y elimina los alimentos consumidos
     # @return [estado_animales] hash con los animales que comieron y los que no
     def alimentar_animales
-     
-        @animales.each do |animal|
+    
+        @registro.animales.each do |animal|
             next if @estado_animales[:alimentados].include?(animal)
 
-            @alimentos.each do |alimento|
+            @registro.alimentos.each do |alimento|
                 if animal.comer(alimento)
                     @estado_animales[:alimentados] << animal
-                    @alimentos.delete_at(@alimentos.index(alimento))
+                    @registro.alimentos.delete_at(@registro.alimentos.index(alimento))
                     if @estado_animales[:no_alimentados].include?(animal)
                         @estado_animales[:no_alimentados].delete(animal)
                     end
@@ -95,9 +125,7 @@ class Registro
 
         @estado_animales
     end
-
 end
-
 
 # instancio al leon del zoo
 leon = Leon.new
@@ -110,6 +138,9 @@ pinguino = Pinguino.new
 
 # creo el registro(unico)
 registro = Registro.new
+
+# creo el dia
+dia1 = DiaAlimentar.new(registro, 1)
 
 # agrego al leon al registro
 registro.agregar_animal(leon)
@@ -130,6 +161,12 @@ registro.agregar_alimento("hojas")
 registro.agregar_alimento("pasto")
 
 # alimento a todos los animales que esten agregados en el registro
-registro.alimentar_animales
+dia1.alimentar_animales
+
+# muestro los animales que comieron y los que no
+dia1.estado_dia_completo
+
+# agrego el dia al registro
+registro.agregar_dia(dia1)
 
 
