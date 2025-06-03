@@ -3,5 +3,5 @@ require_relative 'animales/class_animal'
 require_relative 'animales/leon'
 require_relative 'animales/jirafa'
 require_relative 'animales/pinguino'
-require_relative 'registro'
-require_relative 'zoo'
+
+require_relative 'zoologico'

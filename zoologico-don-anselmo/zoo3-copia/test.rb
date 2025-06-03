@@ -1,44 +1,44 @@
 require_relative 'modulos/cargar_archivos.rb'
 
-# instancio al leon del zoo
-leon = Animales::Leon.new
+# Instancio al león del zoo
+leon1 = Animales::Leon.new
 
-# instancio a la jirafa del zoo
-jirafa = Animales::Jirafa.new
+# Instancio a la jirafa del zoo
+jirafa1 = Animales::Jirafa.new
 
-# instancio al pinguino del zoo
-pinguino = Animales::Pinguino.new
+# Instancio al pingüino del zoo
+pinguino1 = Animales::Pinguino.new
 jirafa2 = Animales::Jirafa.new
-pinguino2 =  Animales::Pinguino.new
-# creo el registro(unico)
-registro1 = Registro.new
-zoo1 = Zoo.new(registro1,1)
+pinguino2 = Animales::Pinguino.new
+leon2 = Animales::Leon.new
 
-registro2 = Registro.new
-zoo2 = Zoo.new(registro2,2)
-# agrego al leon al registro
-registro1.agregar_animal(leon)
+# Creo el registro (único)
+zoo1 = Zoologico.new(1)
+zoo2 = Zoologico.new(2)
 
-# agrego a la jirafa al registro
-registro1.agregar_animal(jirafa)
+zoo1.agregar_animal(leon1)
+zoo1.agregar_animal(jirafa1)
+zoo1.agregar_animal(pinguino1)
 
-# agrego al pinguino al registro
-registro1.agregar_animal(pinguino)
+zoo2.agregar_animal(leon2)
+zoo2.agregar_animal(pinguino2)
+zoo2.agregar_animal(jirafa2)
 
-# agrego comida al registro
-registro1.agregar_alimento("carne")
-registro1.agregar_alimento("carne")
-# agrego comida al registro
-registro1.agregar_alimento("hojas")
+zoo1.agregar_alimento("pasto")
+zoo1.agregar_alimento("carne")
+zoo1.agregar_alimento("pescado")
 
-# agrego comida al registro
 
-registro1.agregar_animal(jirafa2)
-puts  registro1.alimentos
-puts  registro1.estado_animales
-puts "||||||||"
-# alimento a todos los animales que esten agregados en el registro
+zoo2.agregar_alimento("pescado")
+zoo2.agregar_alimento("pescado")
+zoo2.agregar_alimento("hojas")
+zoo2.agregar_alimento("pescado")
 
-puts  registro1.alimentar_animales
-puts  registro1.alimentos
-puts  registro1.estado_animales
+
+
+
+
+zoo1.transferir_animal(leon1,zoo2)
+zoo2.alimentar_animales
+
+
